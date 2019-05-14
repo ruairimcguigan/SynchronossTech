@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.aquidigital.synchronosstech"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def appDependencies = rootProject.ext.appUiDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
+
+    // libs
+    implementation appDependencies.kotlin
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.javaxAnnotation
+    implementation appDependencies.androidAnnotations
+    implementation appDependencies.javaxInject
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.rxKotlin
+    implementation appDependencies.appCompat
+    implementation appDependencies.materialDesign
+    implementation appDependencies.timber
+    implementation appDependencies.glide
+    implementation appDependencies.okhttp
+    implementation appDependencies.androidXLegacy
+    implementation appDependencies.moshi
+    implementation appDependencies.moshiConverter
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'androidx.preference:preference:1.1.0-alpha04'
+    annotationProcessor appDependencies.moshiCodegen
+    implementation appDependencies.retrofitLiveAdapter
+    implementation appDependencies.calligraphy
+    implementation appDependencies.viewPump
+    compileOnly appDependencies.glassfishAnnotation
+
+    // dep injection
+    implementation appDependencies.dagger
+    implementation appDependencies.daggerSupport
+    kapt appDependencies.daggerCompiler
+    implementation appDependencies.daggerAndroid
+    kapt appDependencies.daggerProcessor
+
+
+    // jetpack
+    implementation appDependencies.archRuntime
+    implementation appDependencies.archExtensions
+    annotationProcessor appDependencies.archCompiler
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigation_ui
+    implementation appDependencies.worker
+
+    // db
+//    implementation appDependencies.roomRuntime
+//    kapt appDependencies.roomCompiler
+//    implementation appDependencies.roomKtx
+//    implementation appDependencies.rxRoom
+
+    implementation 'androidx.room:room-runtime:2.0.0'
+    kapt 'androidx.room:room-compiler:2.0.0'
+
+    // test libs
+    testImplementation appTestDependencies.kotlinJUnit
+    androidTestImplementation appTestDependencies.junit
+    androidTestImplementation appTestDependencies.mockito
+    androidTestImplementation appTestDependencies.mockitoAndroid
+    androidTestImplementation appTestDependencies.espressoCore
+    androidTestImplementation appTestDependencies.androidXJunit
+    androidTestImplementation appTestDependencies.androidXCore
+    androidTestImplementation appTestDependencies.workerTesting
+
+    androidTestImplementation(appTestDependencies.androidRunner) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation(appTestDependencies.androidRules) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+    kaptTest appDependencies.daggerCompiler
+    kaptAndroidTest appDependencies.daggerCompiler
+
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation "com.google.android.gms:play-services-location:16.0.0"
+
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    compileOnly 'com.squareup.inject:assisted-inject-annotations-dagger2:0.4.0'
+    annotationProcessor 'com.squareup.inject:assisted-inject-processor-dagger2:0.4.0'
+}

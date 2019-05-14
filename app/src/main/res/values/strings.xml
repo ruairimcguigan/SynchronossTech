@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">SynchronossTech</string>
+    <string name="weatherEntity">Local Weather</string>
+    <string name="settings" tools:ignore="ExtraTranslation">Settings</string>
+
+    <string name="location_request_rationale_dialog">The app requires you to allow
+        access to your location, to determine weatherEntity for your location.
+    </string>
+    <string name="location_request_rationale_ok">OK</string>
+    <string name="api_key">35d8fcb15f81764abd7b1b56ae54c05a</string>
+
+    <string name="location__permission_request">To proceed, allow location permission</string>
+
+    <string name="fetch_error">Error fetching weather</string>
+    <string name="max_temp">Max temp</string>
+    <string name="min_temp">Min temp</string>
+    <string name="current_temp">Current temp</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="welcome">Your weather for location:</string>
+    <string name="wind_speed">Wind</string>
+
+    <string name="wind_speed_with_value">%1$s mph</string>
+    <string name="temperature_with_value">%1$s ℃</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="api_url">http://api.openweathermap.org/data/2.5/</string>
+    <string name="current_temp_label">Current</string>
+    <string name="max_temp_label">Max</string>
+    <string name="min_temp_label">Min</string>
+    <string name="sync">schedule_sync</string>
+</resources>
