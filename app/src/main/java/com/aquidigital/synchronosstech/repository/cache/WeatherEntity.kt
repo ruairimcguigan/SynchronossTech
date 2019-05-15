@@ -16,7 +16,7 @@ data class WeatherEntity (
     @ColumnInfo(name = "sunrise") var sunrise: Long,
     @ColumnInfo(name = "sunset") var sunset: Long,
     @ColumnInfo(name = "country") var country: String,
-//    @ColumnInfo(name ="wind") var wind: List<Wind>,
+    @ColumnInfo(name ="wind") var wind: Wind,
     @ColumnInfo(name = "place") var place: String
 ) {
     @PrimaryKey(autoGenerate = true)

@@ -12,17 +12,25 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.1"/>
+            app:layout_constraintGuide_percent="0.05"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_middle"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.2"/>
 
     <TextView
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Derry City"
-            android:textSize="22sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top"
             app:layout_constraintBottom_toTopOf="@+id/overview"/>
 
     <TextView
@@ -33,14 +41,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cityName"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_top"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_middle"
     />
 
     <TableLayout
             android:layout_width="@dimen/grid_0"
             android:layout_height="@dimen/grid_0"
             android:layout_margin="@dimen/grid_16"
-            app:layout_constraintTop_toBottomOf="@+id/guideline_top"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_middle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -51,14 +59,12 @@
             <TextView style="@style/WeatherHeaderStyle" android:text="@string/min_temp_label"/>
         </TableRow>
 
-        <TableRow android:background="@color/colorPrimaryLight" android:padding="5dp">
+        <TableRow android:background="@color/colorPrimaryLight" android:padding="@dimen/grid_12">
             <TextView android:id="@+id/curentTempValue" style="@style/WeatherContentStyle"/>
             <TextView android:id="@+id/maxTempValue" style="@style/WeatherContentStyle"/>
             <TextView android:id="@+id/minTempValue" style="@style/WeatherContentStyle"/>
         </TableRow>
 
-        <View android:layout_width="match_parent" android:layout_height="2dp"
-              android:background="@color/colorAccent"/>
 
         <TableRow android:background="@color/colorPrimary" android:padding="@dimen/grid_4">
             <TextView style="@style/WeatherHeaderStyle" android:text="@string/sunrise"/>
@@ -66,14 +72,11 @@
             <TextView style="@style/WeatherHeaderStyle" android:text="@string/wind_speed"/>
         </TableRow>
 
-        <TableRow android:background="@color/colorPrimaryLight" android:padding="5dp">
+        <TableRow android:background="@color/colorPrimaryLight" android:padding="@dimen/grid_12">
             <TextView android:id="@+id/sunriseValue" style="@style/WeatherContentStyle"/>
             <TextView android:id="@+id/sunsetValue" style="@style/WeatherContentStyle"/>
             <TextView android:id="@+id/windValue" style="@style/WeatherContentStyle" />
         </TableRow>
-
-        <View android:layout_width="match_parent" android:layout_height="2dp"
-              android:background="@color/colorAccent"/>
 
 
     </TableLayout>

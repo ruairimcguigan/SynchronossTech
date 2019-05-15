@@ -102,8 +102,7 @@ class WeatherFragment : Fragment(), Injectable {
 
         sunriseValue.text = formatter.epochToDate(weather.sunrise)
         sunsetValue.text = formatter.epochToDate(weather.sunset)
-
-//        windValue.text = weather.wind.first().speed.toString()
+        windValue.text = weather.wind.speed.toString()
     }
 
     private fun scheduleAndTrackPeriodicSyncJob(){

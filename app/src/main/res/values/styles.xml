@@ -27,6 +27,8 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">@dimen/grid_24</item>
+
     </style>
 
 </resources>

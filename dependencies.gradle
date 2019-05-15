@@ -19,7 +19,9 @@ ext {
     daggerVersion = '2.16'
     retrofitVersion = '2.3.0'
     okHttpVersion = '3.8.1'
-    moshiVersion = '1.8.0'
+    playVersion = '16.0.0'
+    gsonVersion = '2.8.5'
+    gsonAdpater = '2.4.0'
     moshiConverterVersion = '2.4.0'
     retrofitVersion = '2.4.0'
     supportLibraryVersion = '26.1.0'
@@ -32,14 +34,16 @@ ext {
     materialDesignVersion = '1.0.0'
     archComponents = '2.1.0-alpha04'
     jetpackKotlinVersion = '1.1.0-alpha05'
-    okhttpVersion = "3.10.0"
+    okhttpVersion = '3.10.0'
     retrofitLiveAdapterVersion = "1.1.2"
     androidXLegacyVersion = "1.0.0"
-    caligraphyVersion = "3.1.1"
+    caligraphyVersion = '3.1.1'
     viewPumpVersion = "1.0.0"
-    navigationVersion = "1.0.0-alpha05"
-    roomVersion = "2.1.0-alpha07"
-    workVersion = "2.0.1"
+    navigationVersion = '1.0.0-alpha05'
+    roomVersion = '2.1.0-alpha07'
+    workVersion = '2.0.1'
+    stethoVersion = "1.5.1"
+    assistedInjectVersion = '0.4.0'
 
     // Testing
     jUnitVersion = '4.13-beta-2'
@@ -57,11 +61,13 @@ ext {
     androidXCoreVersion = '2.0.0'
 
 
+
     appUiDependencies = [
             kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
             constraintLayout:           "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
             javaxAnnotation:            "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:                "javax.inject:javax.inject:${javaxInjectVersion}",
+            playServices:               "com.google.android.gms:play-services-location:${playVersion}",
             rxKotlin:                   "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             androidAnnotations:         "androidx.annotation:annotation:1.0.0",
             appCompat:                  "androidx.appcompat:appcompat:${appCompatVersion}",
@@ -83,19 +89,19 @@ ext {
             okhttp:                     "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}",
             retrofitLiveAdapter:        "com.github.leonardoxh:retrofit2-livedata-adapter:${retrofitLiveAdapterVersion}",
             androidXLegacy:             "androidx.legacy:legacy-support-v4:${androidXLegacyVersion}",
-            moshiCodegen:               "com.squareup.moshi:moshi-kotlin-codegen:${moshiVersion}",
-            moshi:                      "com.squareup.moshi:moshi:${moshiVersion}",
-            moshiConverter:             "com.squareup.retrofit2:converter-moshi:${moshiConverterVersion}",
-            calligraphy:                "io.github.inflationx:calligraphy3:${caligraphyVersion}",
+            legacyCore:                 "androidx.legacy:legacy-support-core-utils:${androidXLegacyVersion}",
+            gson:                       "com.google.code.gson:gson:${gsonVersion}",
+            gsonAdapter:                "com.squareup.retrofit2:converter-gson:${gsonAdpater}",
             viewPump:                   "io.github.inflationx:viewpump:${viewPumpVersion}",
             navigationFragment:         'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02',
             navigation_ui:              'androidx.navigation:navigation-ui-ktx:2.0.0-rc02',
-
+            stetho:                     "com.facebook.stetho:stetho:${stethoVersion}",
+            stethoHttp:                 "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
             roomRuntime:                "androidx.room:room-runtime:${roomVersion}",
             roomCompiler:               "androidx.room:room-compiler:${roomVersion}",
             roomKtx:                    "androidx.room:room-ktx:${roomVersion}",
             rxRoom:                     "androidx.room:room-rxjava2:${roomVersion}",
-            worker:                     "androidx.work:work-runtime-ktx:${workVersion}"
+            worker:                     "androidx.work:work-runtime-ktx:${workVersion}",
     ]
 
     appTestDependencies = [

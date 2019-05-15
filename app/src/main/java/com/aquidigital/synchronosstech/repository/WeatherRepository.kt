@@ -63,6 +63,7 @@ class WeatherRepository @Inject constructor(
             data.sunrise(),
             data.sunset(),
             data.country(),
+            data.wind(),
             data.place()
         )
     }

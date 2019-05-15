@@ -2,18 +2,18 @@ package com.aquidigital.synchronosstech.ui.util
 
 import android.content.res.Resources
 import java.lang.Math.toIntExact
-import java.time.Instant.ofEpochMilli
-import java.time.ZoneOffset
-import java.time.ZonedDateTime.ofInstant
-import java.time.format.DateTimeFormatter
+import android.text.format.DateFormat.format
+import java.util.*
+import java.util.Calendar.getInstance
 import javax.inject.Inject
 
 
 class UiFormatter@Inject constructor() {
 
     fun epochToDate(timestamp: Long): String {
-        val formatter = DateTimeFormatter.ofPattern("HH:mm a")
-        return formatter.format(ofInstant(ofEpochMilli(timestamp), ZoneOffset.UTC))
+        val cal = getInstance(Locale.ENGLISH)
+        cal.timeInMillis = timestamp * 1000L
+        return format("hh:mm:ss", cal).toString()
     }
 
     fun formatWithMeasurementUnit(res: Resources, unit: Int, value: Double): String {
