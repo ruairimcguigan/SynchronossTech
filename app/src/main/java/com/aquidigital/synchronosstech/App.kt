@@ -1,24 +1,18 @@
 package com.aquidigital.synchronosstech
 
-import android.app.Activity
-import android.app.Application
 import androidx.work.Configuration
 import androidx.work.WorkManager
-import com.aquidigital.synchronosstech.inject.AppInjector
+import com.aquidigital.synchronosstech.inject.DaggerAppComponent
 import com.aquidigital.synchronosstech.syncworker.SyncWorkerFactory
 import com.facebook.stetho.Stetho
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.DaggerApplication
 import timber.log.Timber
 import javax.inject.Inject
 
-class App : Application(), HasActivityInjector {
+class App : DaggerApplication() {
 
-    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
     @Inject lateinit var syncWorkerFactory: SyncWorkerFactory
-
-    override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
 
     override fun onCreate() {
         super.onCreate()
@@ -27,9 +21,6 @@ class App : Application(), HasActivityInjector {
             Timber.plant(Timber.DebugTree())
             Stetho.initializeWithDefaults(this)
         }
-        AppInjector.init(
-            this
-        )
 
         WorkManager.initialize(
             this,
@@ -37,5 +28,9 @@ class App : Application(), HasActivityInjector {
                 .setWorkerFactory(syncWorkerFactory)
                 .build()
         )
+    }
+
+    override fun applicationInjector(): AndroidInjector<out App> {
+        return DaggerAppComponent.builder().create(this)
     }
 }

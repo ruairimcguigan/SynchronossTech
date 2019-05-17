@@ -1,6 +1,6 @@
 package com.aquidigital.synchronosstech.repository
 
-import android.content.Context
+import android.app.Application
 import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.room.Delete
@@ -18,7 +18,7 @@ import javax.inject.Inject
 import kotlin.concurrent.thread
 
 class WeatherRepository @Inject constructor(
-    private val context: Context,
+    private val context: Application,
     private val api: WeatherApi,
     private val weatherDao: WeatherDao,
     private val appExecutors: AppExecutors) {

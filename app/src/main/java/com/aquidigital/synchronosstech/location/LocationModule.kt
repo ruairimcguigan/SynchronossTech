@@ -1,6 +1,6 @@
 package com.aquidigital.synchronosstech.location
 
-import android.content.Context
+import android.app.Application
 import dagger.Module
 import dagger.Provides
 
@@ -15,7 +15,7 @@ internal object LocationModule {
 
     @JvmStatic
     @Provides
-    fun provideSchedulerLocationHelper(context: Context): LocationHelper {
+    fun provideSchedulerLocationHelper(context: Application): LocationHelper {
         return LocationHelper(context)
     }
 }

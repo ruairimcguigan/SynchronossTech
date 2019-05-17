@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -20,13 +19,14 @@ import com.aquidigital.synchronosstech.location.LocationManager
 import com.aquidigital.synchronosstech.repository.cache.WeatherEntity
 import com.aquidigital.synchronosstech.syncworker.SyncSchedulerWorker
 import com.aquidigital.synchronosstech.ui.util.UiFormatter
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_weather.*
 import timber.log.Timber
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class WeatherFragment : Fragment(), Injectable {
+class WeatherFragment : DaggerFragment(), Injectable {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     @Inject lateinit var locationManager: LocationManager

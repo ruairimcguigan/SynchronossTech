@@ -4,8 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.aquidigital.synchronosstech.BuildConfig.APPLICATION_ID
@@ -13,14 +11,10 @@ import com.aquidigital.synchronosstech.R
 import com.aquidigital.synchronosstech.R.id
 import com.aquidigital.synchronosstech.R.layout
 import com.google.android.material.snackbar.Snackbar.make
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_weather.*
-import javax.inject.Inject
 
-class WeatherActivity : AppCompatActivity(), HasSupportFragmentInjector {
-
-    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+class WeatherActivity : DaggerAppCompatActivity() {
 
     private lateinit var navController: NavController
 
@@ -51,6 +45,4 @@ class WeatherActivity : AppCompatActivity(), HasSupportFragmentInjector {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-
-    override fun supportFragmentInjector() = dispatchingAndroidInjector
 }

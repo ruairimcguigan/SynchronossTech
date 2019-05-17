@@ -30,9 +30,9 @@ internal object ApiModule {
     @Singleton
     @Provides
     fun provideApi(okHttpClient: OkHttpClient,
-                   application: Application): WeatherApi {
+                   context: Application): WeatherApi {
         return Retrofit.Builder()
-            .baseUrl(application.getString(R.string.api_url))
+            .baseUrl(context.getString(R.string.api_url))
             .client(okHttpClient)
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
