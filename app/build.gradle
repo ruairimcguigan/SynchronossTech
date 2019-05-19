@@ -3,6 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+//allOpen {
+//    // allows mocking for classes w/o directly opening them for release builds
+//    annotation 'com.android.example.github.testing.OpenClass'
+//}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -19,7 +24,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled !project.hasProperty('android.injected.invoked.from.ide')
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+//        main {
+//            java.srcDirs = ['src/main/java', 'src/test-util-common/java/']
+//        }
+        androidTest.java.srcDirs += "src/test-util-common/java"
+        test.java.srcDirs += "src/test-util-common/java"
+    }
 }
+
 
 dependencies {
     def appDependencies = rootProject.ext.appUiDependencies
